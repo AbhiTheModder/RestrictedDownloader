@@ -1,2 +1,5 @@
 pyrofork
 tgcrypto
+flask
+gunicorn
+aiohttp
