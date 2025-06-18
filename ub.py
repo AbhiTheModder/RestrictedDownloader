@@ -139,10 +139,12 @@ async def dl(client: Client, message: Message):
                     progress=progress,
                     progress_args=(ms, c_time, f"`Uploading...`"),
                 )
+                await asyncio.sleep(random.uniform(1, 2.5))
                 os.remove(file)
             except ValueError:
                 # If downloading is restricted, try to copy the message
                 await client.copy_message(chat_id, from_chat, selected_id)
+                await asyncio.sleep(random.uniform(1, 2.5))
             except ChatForwardsRestricted:
                 # If downloading is restricted, try to copy the message
                 pass
