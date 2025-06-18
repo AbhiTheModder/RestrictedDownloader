@@ -87,7 +87,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
             except MessageNotModified:
                 pass
 
-@app.on_message(filters.command("rdl", "!) & filters.me)
+@app.on_message(filters.command("rdl", "!") & filters.me)
 async def dl(client: Client, message: Message):
     # Extract command arguments
     args = message.command[1:]
@@ -95,7 +95,7 @@ async def dl(client: Client, message: Message):
     # Check if the required arguments are provided
     if len(args) < 2:
         await message.edit_text(
-            "Kindly use `.rdl channel_link message_id [number_of_messages]`"
+            "Kindly use `!rdl channel_link message_id [number_of_messages]`"
         )
         return
 
